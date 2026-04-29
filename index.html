@@ -22,7 +22,18 @@
         
         #rotating-word { transition: all 0.3s ease-in-out; display: inline-block; }
 
-        /* Estilos del Modal */
+        /* Mejora Botón Flotante Mobile */
+        #floating-btn-container {
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            transform: translateY(100px);
+            opacity: 0;
+        }
+        #floating-btn-container.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Modal Styles */
         #modal-overlay {
             display: none;
             backdrop-filter: blur(8px);
@@ -38,8 +49,8 @@
 
     <nav class="fixed w-full z-50 glass">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-3xl font-extrabold tracking-tighter text-risspo italic uppercase flex items-center gap-2">
-                <i class="fa-solid fa-bolt-lightning text-2xl"></i> RISSPO
+            <div class="text-2xl md:text-3xl font-extrabold tracking-tighter text-risspo italic uppercase flex items-center gap-2">
+                <i class="fa-solid fa-bolt-lightning text-xl md:text-2xl"></i> RISSPO
             </div>
             <div class="flex items-center gap-6">
                 <a href="#negocios" class="hidden md:block text-xs font-black text-slate-500 hover:text-risspo transition uppercase tracking-widest">Para Negocios</a>
@@ -50,23 +61,23 @@
         </div>
     </nav>
 
-    <section class="relative pt-32 pb-20 px-6 vector-bg overflow-hidden border-b border-slate-50">
+    <section id="hero" class="relative pt-32 pb-20 px-6 vector-bg overflow-hidden border-b border-slate-50">
         <div class="max-w-4xl mx-auto text-center relative z-10">
-            <div class="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-500 px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest mb-8 shadow-sm">
+            <div class="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-500 px-4 py-2 rounded-full text-[10px] md:text-[11px] font-bold uppercase tracking-widest mb-8 shadow-sm">
                 🎁 ¡DESCUBRÍ EL FACTOR SORPRESA!
             </div>
             
-            <h1 class="text-5xl md:text-8xl font-black leading-[0.9] tracking-tighter mb-8 uppercase italic">
+            <h1 class="text-4xl md:text-8xl font-black leading-[1.1] md:leading-[0.9] tracking-tighter mb-8 uppercase italic">
                 CENÁ POR LO QUE <br>
                 <span class="text-slate-400">VALE UN </span>
-                <span id="rotating-word" class="text-risspo underline decoration-slate-200">pinta</span>.
+                <span class="whitespace-nowrap"><span id="rotating-word" class="text-risspo underline decoration-slate-200">pinta</span>.</span>
             </h1>
 
             <p class="text-slate-600 text-lg md:text-xl leading-relaxed mb-12 font-medium max-w-2xl mx-auto">
-                No sabés qué hay adentro, pero sabés que es <strong>increíble</strong>. Risspo conecta el stock que sobró del día con personas que quieren comer rico y cuidar el bolsillo.
+                No sabés qué hay adentro, pero sabés que es <strong>increíble</strong>. Risspo conecta el excedente del día con personas que quieren comer rico y cuidar el bolsillo.
             </p>
 
-            <button onclick="openModal()" class="bg-risspo text-white px-8 py-5 rounded-2xl font-black text-lg uppercase shadow-xl shadow-orange-500/30 btn-bounce">
+            <button id="hero-action-btn" onclick="openModal()" class="bg-risspo text-white px-8 py-5 rounded-2xl font-black text-lg uppercase shadow-xl shadow-orange-500/30 btn-bounce">
                 Rescatar mi pack sorpresa
             </button>
         </div>
@@ -96,7 +107,7 @@
                     <div class="flex gap-4">
                         <div class="w-12 h-12 shrink-0 bg-orange-50 rounded-2xl flex items-center justify-center text-risspo font-bold text-xl italic shadow-sm">02</div>
                         <p class="text-slate-600 font-medium leading-snug">
-                            <strong class="text-slate-900 uppercase italic">Es para compartir:</strong> Los packs suelen ser generosos. Ideales para una juntada improvisada o un bajón de estudio.
+                            <strong class="text-slate-900 uppercase italic">Es para compartir:</strong> Los packs suelen ser generosos. Ideales para una juntada o un bajón de estudio.
                         </p>
                     </div>
                     <div class="flex gap-4">
@@ -138,12 +149,12 @@
                 </div>
             </div>
 
-            <div class="bg-white text-slate-900 rounded-[3rem] p-8 md:p-12 text-center shadow-2xl relative">
-                <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-risspo text-white px-6 py-2 rounded-full font-black text-xs uppercase italic tracking-widest shadow-lg">
+            <div class="bg-white text-slate-900 rounded-[3rem] p-8 md:p-12 text-center shadow-2xl relative mt-10">
+                <div class="absolute -top-4 md:-top-5 left-1/2 -translate-x-1/2 bg-risspo text-white px-4 md:px-6 py-2 rounded-full font-black text-[10px] md:text-xs uppercase italic tracking-widest shadow-lg whitespace-nowrap z-10">
                     SIN COMISIONES POR VENTA
                 </div>
-                <h3 class="text-3xl font-extrabold uppercase italic mb-4">Mantené el 100% de lo que cobrás</h3>
-                <p class="text-slate-500 font-bold mb-8 italic">Pagás una tarifa fija mínima, vendés todo lo que quieras.</p>
+                <h3 class="text-2xl md:text-3xl font-extrabold uppercase italic mb-4 pt-4 md:pt-0">Mantené el 100% de lo que cobrás</h3>
+                <p class="text-slate-500 text-sm md:text-base font-bold mb-8 italic">Pagás una tarifa fija mínima, vendés todo lo que quieras.</p>
                 
                 <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-10">
                     <div class="border-2 border-slate-100 rounded-3xl p-6 w-full max-w-[220px]">
@@ -182,7 +193,7 @@
         <p class="text-slate-400 text-[10px] font-black uppercase tracking-[0.5em] mb-4">Rosario • Argentina • 2026</p>
     </footer>
 
-    <div class="fixed bottom-8 left-0 w-full px-6 z-50 md:hidden pointer-events-none">
+    <div id="floating-btn-container" class="fixed bottom-8 left-0 w-full px-6 z-50 md:hidden pointer-events-none">
         <button onclick="openModal()" class="w-full bg-risspo text-white py-5 rounded-3xl font-black text-xl uppercase shadow-2xl pointer-events-auto btn-bounce flex items-center justify-center gap-3">
             VER PACKS SORPRESA
         </button>
@@ -190,56 +201,67 @@
 
     <div id="modal-overlay" class="fixed inset-0 z-[100] flex items-center justify-center p-6">
         <div class="modal-content bg-white w-full max-w-sm rounded-[3rem] p-10 text-center shadow-2xl relative">
-            <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-300 hover:text-slate-900 transition">
-                <i class="fa-solid fa-xmark text-2xl"></i>
+            <button onclick="closeModal()" class="absolute top-8 right-8 text-slate-300 hover:text-slate-900 transition">
+                <i class="fa-solid fa-xmark text-xl"></i>
             </button>
-            <div class="text-6xl mb-6">🛑</div>
-         <h3 class="text-2xl font-black uppercase italic tracking-tighter leading-tight mb-4">
+            <div class="text-5xl mb-6">🚀</div>
+            <h3 class="text-2xl font-black uppercase italic tracking-tighter leading-tight mb-4">
                 ¡Estamos llegando <br><span class="text-risspo text-3xl">a Rosario!</span>
             </h3>
-        
-           <p class="text-slate-500 font-medium leading-relaxed mb-8 text-sm">
-                Estamos terminando de sumar a los mejores locales de la ciudad para asegurar que tu experiencia de rescate sea excelente desde el primer día.
+            <p class="text-slate-500 font-medium leading-relaxed mb-8 text-sm text-center">
+                Estamos terminando de sumar a los mejores locales de la ciudad para asegurar que tu experiencia sea excelente.
             </p>
-            <div class="bg-slate-50 p-6 rounded-2xl mb-8">
-                <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Avisame cuando abran las cajas</p>
-                <input type="tel" placeholder="Tu WhatsApp" class="w-full bg-white border-2 border-slate-100 p-4 rounded-xl font-bold text-sm outline-none focus:border-risspo transition-all mb-3">
-                <button onclick="closeModal()" class="w-full bg-dark text-white py-4 rounded-xl font-black uppercase text-xs tracking-widest italic">Listo, chiflenme</button>
+            <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100">
+                <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">Avisame al lanzar</p>
+                <input type="tel" placeholder="WhatsApp (Ej: 341...)" class="w-full bg-white border border-slate-200 p-4 rounded-xl font-bold text-sm outline-none focus:border-risspo transition-all mb-3 text-center">
+                <button onclick="closeModal()" class="w-full bg-dark text-white py-4 rounded-xl font-black uppercase text-xs tracking-widest italic transition-all hover:bg-slate-800">Listo, chiflenme</button>
             </div>
-            <p class="text-[9px] font-bold text-slate-300 uppercase tracking-widest italic">Risspo: Estamos horneando la app</p>
         </div>
     </div>
 
     <script>
-        // Lógica de rotación de palabras
+        // 1. Lógica de rotación de palabras (Con fix para el punto)
         const words = ["pinta", "alfajor", "bondi", "coca"];
-        let index = 0;
+        let wordIndex = 0;
         const rotatingEl = document.getElementById('rotating-word');
 
         setInterval(() => {
-            index = (index + 1) % words.length;
+            wordIndex = (wordIndex + 1) % words.length;
             rotatingEl.style.opacity = 0;
             rotatingEl.style.transform = "translateY(-5px)";
             
             setTimeout(() => {
-                rotatingEl.innerText = words[index];
+                rotatingEl.innerText = words[wordIndex];
                 rotatingEl.style.opacity = 1;
                 rotatingEl.style.transform = "translateY(0)";
             }, 300);
         }, 3000);
 
-        // Lógica del Modal
+        // 2. Lógica de visibilidad del botón flotante mobile
+        const heroBtn = document.getElementById('hero-action-btn');
+        const floatingContainer = document.getElementById('floating-btn-container');
+
+        window.addEventListener('scroll', () => {
+            if (!heroBtn || !floatingContainer) return;
+            const heroBtnPosition = heroBtn.getBoundingClientRect();
+            if (heroBtnPosition.bottom < 0) {
+                floatingContainer.classList.add('show');
+            } else {
+                floatingContainer.classList.remove('show');
+            }
+        });
+
+        // 3. Lógica del Modal
         function openModal() {
             document.getElementById('modal-overlay').style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Bloquea el scroll
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
             document.getElementById('modal-overlay').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Habilita el scroll
+            document.body.style.overflow = 'auto';
         }
 
-        // Cerrar al clickear fuera del contenido
         window.onclick = function(event) {
             const overlay = document.getElementById('modal-overlay');
             if (event.target == overlay) {
