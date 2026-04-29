@@ -3,126 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RESCATE | Packs Sorpresa al precio de una pinta</title>
+    <title>Risspo | No tirés comida, hacé valer tu esfuerzo</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; }
-        .bg-amazon { background-color: #FF9900; }
-        .text-amazon { color: #FF9900; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; overflow-x: hidden; }
+        .bg-risspo { background-color: #FF9900; }
+        .text-risspo { color: #FF9900; }
         .bg-dark { background-color: #131921; }
-        .card-shadow { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02); }
+        
+        .vector-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff9900' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2v-4h4v-2H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
         .btn-bounce:active { transform: scale(0.95); transition: 0.1s; }
-        .surprise-badge { background: linear-gradient(90deg, #FF9900 0%, #FF5C00 100%); }
+        .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        
+        #rotating-word { transition: all 0.3s ease-in-out; display: inline-block; }
+
+        /* Estilos del Modal */
+        #modal-overlay {
+            display: none;
+            backdrop-filter: blur(8px);
+            background-color: rgba(19, 25, 33, 0.8);
+            animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .modal-content { animation: slideUp 0.4s ease-out; }
     </style>
 </head>
 <body class="antialiased text-slate-900">
 
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
-        <div class="px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-extrabold tracking-tighter text-amazon italic uppercase">
-                RESCATE<span class="text-slate-900">!</span>
+    <nav class="fixed w-full z-50 glass">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-3xl font-extrabold tracking-tighter text-risspo italic uppercase flex items-center gap-2">
+                <i class="fa-solid fa-bolt-lightning text-2xl"></i> RISSPO
             </div>
-            <a href="#comercios" class="text-[10px] font-bold text-slate-400 uppercase tracking-widest bg-slate-100 px-3 py-1 rounded-full">Negocios</a>
+            <div class="flex items-center gap-6">
+                <a href="#negocios" class="hidden md:block text-xs font-black text-slate-500 hover:text-risspo transition uppercase tracking-widest">Para Negocios</a>
+                <div class="bg-risspo/10 text-risspo px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-tighter border border-risspo/20">
+                    Rosario 2026
+                </div>
+            </div>
         </div>
     </nav>
 
-    <section class="pt-28 pb-12 px-6">
-        <div class="max-w-md mx-auto text-center">
-            <div class="inline-flex items-center gap-2 bg-orange-50 text-amazon px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider mb-6">
-                📍 EXCLUSIVO ROSARIO
+    <section class="relative pt-32 pb-20 px-6 vector-bg overflow-hidden border-b border-slate-50">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-500 px-4 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest mb-8 shadow-sm">
+                🎁 ¡DESCUBRÍ EL FACTOR SORPRESA!
             </div>
-            <h1 class="text-[42px] leading-[1.1] font-extrabold tracking-tight mb-6 uppercase">
-                CENÁ POR LO QUE <br>VALE <span class="text-amazon italic">UNA PINTA.</span>
-            </h1>
-            <p class="text-slate-500 text-lg leading-relaxed mb-8 font-medium">
-                Rescatá <strong>Packs Sorpresa</strong> con lo mejor que sobró del día en locales de tu barrio. Misma calidad, 60% más barato.
-            </p>
-        </div>
-
-        <div class="max-w-sm mx-auto relative mt-4">
-            <div class="bg-white rounded-[2.5rem] p-3 border border-slate-100 card-shadow">
-                <div class="relative overflow-hidden rounded-[2rem]">
-                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80" class="w-full h-64 object-cover">
-                    <div class="absolute top-4 left-4 surprise-badge text-white px-3 py-1 rounded-full shadow-lg">
-                        <p class="text-[10px] font-black uppercase italic tracking-widest">✨ Pack Sorpresa</p>
-                    </div>
-                </div>
-                <div class="p-4">
-                    <div class="flex justify-between items-start mb-2">
-                        <div>
-                            <h3 class="font-extrabold text-xl uppercase italic tracking-tighter">Mix de Facturas</h3>
-                            <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest italic">Panadería del Centro</p>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-amazon text-3xl font-extrabold leading-none">$1.900</p>
-                            <p class="text-slate-300 line-through text-xs font-bold">$5.500</p>
-                        </div>
-                    </div>
-                    <p class="text-slate-500 text-[11px] leading-snug border-t border-dashed pt-3 mt-2">
-                        <i class="fa-solid fa-circle-info text-amazon mr-1"></i> 
-                        El pack contiene un <strong>mix aleatorio</strong> de lo que sobró en el mostrador (medialunas, facturas con crema, churros). ¡Es una sorpresa!
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 px-8 bg-slate-50 rounded-t-[3rem] -mt-8">
-        <div class="max-w-md mx-auto">
-            <h2 class="text-center font-extrabold text-2xl uppercase italic tracking-tighter mb-10">¿Cómo funciona el rescate?</h2>
             
-            <div class="space-y-10">
-                <div class="flex gap-5">
-                    <div class="flex-shrink-0 w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-amazon shadow-sm border border-orange-100">
-                        <i class="fa-solid fa-shuffle text-xl"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-extrabold text-lg uppercase italic leading-none mb-2 tracking-tighter">Contenido Aleatorio</h4>
-                        <p class="text-slate-500 text-sm leading-snug">El local arma el pack con el excedente del día. No elegís los productos, pero te llevás <strong>lo mejor por una fracción del precio</strong>.</p>
-                    </div>
+            <h1 class="text-5xl md:text-8xl font-black leading-[0.9] tracking-tighter mb-8 uppercase italic">
+                CENÁ POR LO QUE <br>
+                <span class="text-slate-400">VALE UN </span>
+                <span id="rotating-word" class="text-risspo underline decoration-slate-200">pinta</span>.
+            </h1>
+
+            <p class="text-slate-600 text-lg md:text-xl leading-relaxed mb-12 font-medium max-w-2xl mx-auto">
+                No sabés qué hay adentro, pero sabés que es <strong>increíble</strong>. Risspo conecta el stock que sobró del día con personas que quieren comer rico y cuidar el bolsillo.
+            </p>
+
+            <button onclick="openModal()" class="bg-risspo text-white px-8 py-5 rounded-2xl font-black text-lg uppercase shadow-xl shadow-orange-500/30 btn-bounce">
+                Rescatar mi pack sorpresa
+            </button>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-white relative">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=800&q=80" class="rounded-[3rem] shadow-2xl border-8 border-white transform -rotate-2">
+                <div class="absolute bottom-6 right-6 bg-slate-900 text-white p-6 rounded-3xl shadow-2xl max-w-[200px] transform rotate-3">
+                    <p class="text-[10px] font-black uppercase text-risspo mb-2 tracking-widest">¿QUÉ ME TOCA?</p>
+                    <p class="text-sm font-bold leading-tight italic">"No elegís el menú, elegís la aventura."</p>
                 </div>
-                
-                <div class="flex gap-5">
-                    <div class="flex-shrink-0 w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-amazon shadow-sm border border-orange-100">
-                        <i class="fa-solid fa-hand-holding-dollar text-xl"></i>
+            </div>
+            
+            <div class="space-y-8">
+                <h2 class="text-4xl md:text-5xl font-black uppercase italic tracking-tighter leading-none">
+                    EL PACK SORPRESA: <br><span class="text-risspo italic">ES MAGIA.</span>
+                </h2>
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 shrink-0 bg-orange-50 rounded-2xl flex items-center justify-center text-risspo font-bold text-xl italic shadow-sm">01</div>
+                        <p class="text-slate-600 font-medium leading-snug">
+                            <strong class="text-slate-900 uppercase italic">Es oportunidad:</strong> Probá platos de ese local que siempre mirás de afuera pero nunca entraste.
+                        </p>
                     </div>
-                    <div>
-                        <h4 class="font-extrabold text-lg uppercase italic leading-none mb-2 tracking-tighter">Pagás al retirar</h4>
-                        <p class="text-slate-500 text-sm leading-snug">Reservás tu pack sorpresa desde la app y <strong>pagás directo en el mostrador</strong> cuando vas a buscarlo.</p>
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 shrink-0 bg-orange-50 rounded-2xl flex items-center justify-center text-risspo font-bold text-xl italic shadow-sm">02</div>
+                        <p class="text-slate-600 font-medium leading-snug">
+                            <strong class="text-slate-900 uppercase italic">Es para compartir:</strong> Los packs suelen ser generosos. Ideales para una juntada improvisada o un bajón de estudio.
+                        </p>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 shrink-0 bg-orange-50 rounded-2xl flex items-center justify-center text-risspo font-bold text-xl italic shadow-sm">03</div>
+                        <p class="text-slate-600 font-medium leading-snug">
+                            <strong class="text-slate-900 uppercase italic">Es ahorro real:</strong> Pagás un 30% de lo que vale la carta. El stock quedó perfecto.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="comercios" class="bg-dark py-20 px-8">
-        <div class="max-w-md mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-white text-3xl font-extrabold uppercase italic tracking-tighter leading-none mb-4">
-                    ¿DUEÑO DE UN <br><span class="text-amazon">NEGOCIO?</span>
+    <section id="negocios" class="py-24 px-8 bg-dark text-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-extrabold uppercase italic tracking-tighter leading-none mb-6">
+                    HACÉ VALER TU <br><span class="text-risspo">ESFUERZO.</span>
                 </h2>
-                <p class="text-slate-400 text-sm font-bold italic">Vende tu excedente y ganá visibilidad en el barrio.</p>
+                <p class="text-slate-400 text-lg md:text-xl max-w-xl mx-auto">
+                    Sabemos lo que cuesta producir cada plato. No permitas que tu laburo termine en el tacho.
+                </p>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 mb-8">
-                <div class="bg-slate-800/50 p-5 rounded-3xl border border-slate-700">
-                    <p class="text-amazon font-extrabold text-3xl mb-1">0%</p>
-                    <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest">Comisión</p>
+            <div class="grid md:grid-cols-2 gap-12 mb-20">
+                <div class="flex gap-6">
+                    <div class="text-risspo text-3xl shrink-0"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                    <div>
+                        <h4 class="text-xl font-bold uppercase italic mb-2 tracking-tight">Recuperá costos</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Monetizá lo que hoy es pérdida. Cada pack vendido es plata que vuelve a tu caja directamente.</p>
+                    </div>
                 </div>
-                <div class="bg-slate-800/50 p-5 rounded-3xl border border-slate-700 text-right">
-                    <p class="text-amazon font-extrabold text-3xl mb-1">$15k</p>
-                    <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest">Tarifa fija</p>
+                <div class="flex gap-6">
+                    <div class="text-risspo text-3xl shrink-0"><i class="fa-solid fa-users"></i></div>
+                    <div>
+                        <h4 class="text-xl font-bold uppercase italic mb-2 tracking-tight">Nuevos clientes</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Gente de Rosario que no te conocía va a probar tu producto. Es la mejor publicidad.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="bg-white rounded-[2.5rem] p-8 shadow-2xl">
-                <h3 class="text-center font-extrabold text-xl uppercase italic mb-6">Sumá tu local</h3>
-                <div class="space-y-4">
-                    <input type="text" placeholder="Nombre del local (Ej: Rotisería Pepe)" class="w-full bg-slate-50 border-none p-4 rounded-2xl font-bold text-sm focus:ring-2 focus:ring-amazon outline-none">
-                    <input type="tel" placeholder="Tu WhatsApp" class="w-full bg-slate-50 border-none p-4 rounded-2xl font-bold text-sm focus:ring-2 focus:ring-amazon outline-none">
-                    <button class="w-full bg-amazon text-white py-4 rounded-2xl font-extrabold text-lg uppercase shadow-lg shadow-orange-900/20 btn-bounce transition-all">
+            <div class="bg-white text-slate-900 rounded-[3rem] p-8 md:p-12 text-center shadow-2xl relative">
+                <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-risspo text-white px-6 py-2 rounded-full font-black text-xs uppercase italic tracking-widest shadow-lg">
+                    SIN COMISIONES POR VENTA
+                </div>
+                <h3 class="text-3xl font-extrabold uppercase italic mb-4">Mantené el 100% de lo que cobrás</h3>
+                <p class="text-slate-500 font-bold mb-8 italic">Pagás una tarifa fija mínima, vendés todo lo que quieras.</p>
+                
+                <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-10">
+                    <div class="border-2 border-slate-100 rounded-3xl p-6 w-full max-w-[220px]">
+                        <p class="text-[10px] font-black uppercase text-slate-400 mb-2 tracking-widest">Comisión</p>
+                        <p class="text-5xl font-black italic">0%</p>
+                    </div>
+                    <div class="border-2 border-risspo rounded-3xl p-6 w-full max-w-[220px] bg-orange-50">
+                        <p class="text-[10px] font-black uppercase text-risspo mb-2 tracking-widest">Tarifa Risspo</p>
+                        <p class="text-4xl font-black italic text-slate-900">$15.000<span class="text-sm">/mes</span></p>
+                    </div>
+                </div>
+
+                <div class="max-w-sm mx-auto space-y-4">
+                    <input type="tel" placeholder="WhatsApp de tu local" class="w-full bg-slate-50 border-2 border-slate-100 p-5 rounded-2xl font-bold text-sm focus:border-risspo outline-none transition-all">
+                    <button class="w-full bg-risspo text-white py-5 rounded-2xl font-black text-lg uppercase shadow-xl btn-bounce">
                         PROBÁ UN MES GRATIS
                     </button>
                 </div>
@@ -130,20 +166,86 @@
         </div>
     </section>
 
-    <footer class="py-12 px-6 text-center bg-white border-t border-slate-50">
-        <div class="text-2xl font-black text-amazon italic mb-4 uppercase">RESCATE!</div>
-        <p class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.2em] mb-4">Rosario 2026 • El Clan</p>
-        <p class="text-slate-400 text-[10px] leading-relaxed max-w-xs mx-auto italic font-medium">
-            "No dejes que la comida increíble termine en el tacho. Rescatá calidad, ahorrá dinero y ayudá a tu ciudad."
-        </p>
+    <section class="py-24 px-8 text-center bg-slate-50">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-5xl font-black italic uppercase tracking-tighter mb-8 leading-[0.8]">
+                NO DA TIRAR <br><span class="text-risspo">COMIDA.</span>
+            </h2>
+            <button onclick="openModal()" class="bg-dark text-white px-10 py-6 rounded-3xl font-black text-xl uppercase italic shadow-2xl btn-bounce">
+                RESCATAR AHORA
+            </button>
+        </div>
+    </section>
+
+    <footer class="py-16 text-center border-t border-slate-100 bg-white">
+        <div class="text-3xl font-black text-risspo italic uppercase mb-4 tracking-tighter">RISSPO!</div>
+        <p class="text-slate-400 text-[10px] font-black uppercase tracking-[0.5em] mb-4">Rosario • Argentina • 2026</p>
     </footer>
 
-    <div class="fixed bottom-6 left-0 w-full px-6 z-50 pointer-events-none md:hidden">
-        <button class="w-full bg-amazon text-white py-5 rounded-2xl font-extrabold text-lg shadow-2xl shadow-orange-500/40 border-2 border-white/20 uppercase tracking-tight pointer-events-auto btn-bounce transition-all">
-            Ver packs sorpresa ahora
+    <div class="fixed bottom-8 left-0 w-full px-6 z-50 md:hidden pointer-events-none">
+        <button onclick="openModal()" class="w-full bg-risspo text-white py-5 rounded-3xl font-black text-xl uppercase shadow-2xl pointer-events-auto btn-bounce flex items-center justify-center gap-3">
+            VER PACKS SORPRESA
         </button>
     </div>
 
+    <div id="modal-overlay" class="fixed inset-0 z-[100] flex items-center justify-center p-6">
+        <div class="modal-content bg-white w-full max-w-sm rounded-[3rem] p-10 text-center shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-300 hover:text-slate-900 transition">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+            <div class="text-6xl mb-6">🛑</div>
+         <h3 class="text-2xl font-black uppercase italic tracking-tighter leading-tight mb-4">
+                ¡Estamos llegando <br><span class="text-risspo text-3xl">a Rosario!</span>
+            </h3>
+        
+           <p class="text-slate-500 font-medium leading-relaxed mb-8 text-sm">
+                Estamos terminando de sumar a los mejores locales de la ciudad para asegurar que tu experiencia de rescate sea excelente desde el primer día.
+            </p>
+            <div class="bg-slate-50 p-6 rounded-2xl mb-8">
+                <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Avisame cuando abran las cajas</p>
+                <input type="tel" placeholder="Tu WhatsApp" class="w-full bg-white border-2 border-slate-100 p-4 rounded-xl font-bold text-sm outline-none focus:border-risspo transition-all mb-3">
+                <button onclick="closeModal()" class="w-full bg-dark text-white py-4 rounded-xl font-black uppercase text-xs tracking-widest italic">Listo, chiflenme</button>
+            </div>
+            <p class="text-[9px] font-bold text-slate-300 uppercase tracking-widest italic">Risspo: Estamos horneando la app</p>
+        </div>
+    </div>
+
+    <script>
+        // Lógica de rotación de palabras
+        const words = ["pinta", "alfajor", "bondi", "coca"];
+        let index = 0;
+        const rotatingEl = document.getElementById('rotating-word');
+
+        setInterval(() => {
+            index = (index + 1) % words.length;
+            rotatingEl.style.opacity = 0;
+            rotatingEl.style.transform = "translateY(-5px)";
+            
+            setTimeout(() => {
+                rotatingEl.innerText = words[index];
+                rotatingEl.style.opacity = 1;
+                rotatingEl.style.transform = "translateY(0)";
+            }, 300);
+        }, 3000);
+
+        // Lógica del Modal
+        function openModal() {
+            document.getElementById('modal-overlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Bloquea el scroll
+        }
+
+        function closeModal() {
+            document.getElementById('modal-overlay').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Habilita el scroll
+        }
+
+        // Cerrar al clickear fuera del contenido
+        window.onclick = function(event) {
+            const overlay = document.getElementById('modal-overlay');
+            if (event.target == overlay) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
-  
