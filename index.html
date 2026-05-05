@@ -43,9 +43,9 @@
 <nav class="fixed top-0 w-full z-[100] glass">
     <div class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
         <div class="text-2xl font-black italic uppercase text-risspo tracking-tighter">Risspo</div>
-        <div class="flex items-center gap-1 bg-slate-200/50 p-1 rounded-full">
-            <button class="bg-white shadow-sm text-slate-900 px-4 py-1.5 rounded-full text-xs font-bold">Consumidor</button>
-            <button class="text-slate-500 px-4 py-1.5 rounded-full text-xs font-bold">Negocios</button>
+        <div class="flex items-center gap-1 bg-slate-200/50 p-1 rounded-full text-[10px] sm:text-xs font-bold">
+            <button class="bg-white shadow-sm text-slate-900 px-4 py-1.5 rounded-full">Consumidor</button>
+            <button class="text-slate-500 px-4 py-1.5 rounded-full">Negocios</button>
         </div>
     </div>
 </nav>
@@ -82,7 +82,7 @@
                 </button>
             </div>
             
-            <!-- Iconos Corregidos -->
+            <!-- Iconos verdes corregidos -->
             <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-3">
                 <div class="flex items-center gap-2 text-xs font-bold text-slate-600 bg-white px-4 py-2.5 rounded-xl border border-slate-100 shadow-sm">
                     <div class="w-2 h-2 bg-emerald-500 rounded-full"></div>
@@ -95,11 +95,12 @@
             </div>
         </div>
 
+        <!-- Hero Image -->
         <div class="relative min-h-[400px] flex justify-center items-center">
             <div class="absolute w-72 h-72 md:w-[450px] md:h-[450px] bg-orange-200/50 rounded-full blur-3xl opacity-60"></div>
             <div class="relative floating">
                 <div class="absolute -top-10 -right-4 bg-white p-4 rounded-2xl shadow-xl z-20 border border-slate-50">
-                    <p class="text-[10px] font-black text-slate-400 uppercase leading-none mb-1">Valor real</p>
+                    <p class="text-[10px] font-black text-slate-400 uppercase mb-1">Valor real</p>
                     <p class="text-xl font-black text-slate-900 leading-none">$12.000+</p>
                 </div>
                 <div class="absolute -bottom-6 -left-4 bg-white p-4 rounded-2xl shadow-xl z-20 border border-slate-50 text-xs font-bold text-risspo">
@@ -111,7 +112,7 @@
     </div>
 </section>
 
-<!-- El resto de las secciones se mantienen igual como pediste -->
+<!-- Categorías -->
 <section class="py-20 bg-white px-5">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12">
@@ -119,7 +120,7 @@
             <p class="text-slate-500">Mismo precio, tres experiencias distintas.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div class="group relative p-8 rounded-[2.5rem] bg-orange-50 border border-orange-100 transition-all hover:shadow-2xl hover:shadow-orange-100 cursor-pointer">
+            <div class="group p-8 rounded-[2.5rem] bg-orange-50 border border-orange-100 transition-all hover:shadow-2xl cursor-pointer">
                 <div class="text-4xl mb-4">🥐</div>
                 <h3 class="text-2xl font-black mb-2 italic uppercase">Salada</h3>
                 <p class="text-slate-600 text-sm mb-6">Pizza, empanadas, sandwiches premium y bakery artesanal.</p>
@@ -130,7 +131,7 @@
                     </span>
                 </div>
             </div>
-            <div class="group relative p-8 rounded-[2.5rem] bg-pink-50 border border-pink-100 transition-all hover:shadow-2xl hover:shadow-pink-100 cursor-pointer">
+            <div class="group p-8 rounded-[2.5rem] bg-pink-50 border border-pink-100 transition-all hover:shadow-2xl cursor-pointer">
                 <div class="text-4xl mb-4">🍰</div>
                 <h3 class="text-2xl font-black mb-2 italic uppercase">Dulce</h3>
                 <p class="text-slate-600 text-sm mb-6">Cookies, porciones de torta, postres y delicias de pastelería.</p>
@@ -141,7 +142,7 @@
                     </span>
                 </div>
             </div>
-            <div class="group relative p-8 rounded-[2.5rem] bg-indigo-50 border border-indigo-100 transition-all hover:shadow-2xl hover:shadow-indigo-100 cursor-pointer">
+            <div class="group p-8 rounded-[2.5rem] bg-indigo-50 border border-indigo-100 transition-all hover:shadow-2xl cursor-pointer">
                 <div class="text-4xl mb-4">🎁</div>
                 <h3 class="text-2xl font-black mb-2 italic uppercase">Mixta</h3>
                 <p class="text-slate-600 text-sm mb-6">Un poco de todo. La opción ideal para compartir y sorprenderse.</p>
@@ -156,6 +157,7 @@
     </div>
 </section>
 
+<!-- Pasos -->
 <section class="py-20 bg-slate-50 px-5">
     <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 text-center">
         <div>
@@ -176,9 +178,29 @@
     </div>
 </section>
 
+<!-- CTA Final Reintegrado -->
+<section class="py-10 px-5">
+    <div class="max-w-5xl mx-auto bg-slate-900 rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-risspo/20 blur-[120px]"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-orange-400/10 blur-[80px]"></div>
+        
+        <div class="relative z-10">
+            <h2 class="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter mb-8 leading-[0.85]">
+                ¿Hambre de <br><span class="text-risspo italic">sorpresas?</span>
+            </h2>
+            <p class="text-slate-400 mb-10 text-lg font-medium max-w-md mx-auto italic">
+                No sabés qué viene, pero sabés que conviene.
+            </p>
+            <button class="bg-risspo text-white px-12 py-6 rounded-2xl font-black text-xl uppercase shadow-2xl shadow-orange-500/20 btn-bounce">
+                Reservar mi Cajita
+            </button>
+        </div>
+    </div>
+</section>
+
 <footer class="py-12 text-center">
     <div class="text-2xl font-black italic uppercase text-risspo mb-4 tracking-tighter">Risspo</div>
-    <p class="text-slate-300 text-[10px] font-bold uppercase tracking-[0.3em]">Hecho en Rosario • 2024</p>
+    <p class="text-slate-300 text-[10px] font-bold uppercase tracking-[0.3em]">Rosario • 2026</p>
 </footer>
 
 </body>
